@@ -1,0 +1,15 @@
+{
+  "name": "@menseb/react-boilerplate",
+  "version": "1.0.0",
+  "description": "React boilerplate",
+  "main": "index.js",
+  "scripts": {
+    "test": "test"
+  },
+  "keywords": [
+    "react",
+    "boilerplate"
+  ],
+  "author": "Sébastien Menard",
+  "license": "ISC"
+}
