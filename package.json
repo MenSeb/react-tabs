@@ -3,13 +3,86 @@
   "version": "1.0.0",
   "description": "React boilerplate",
   "main": "index.js",
+  "module": "index.js",
+  "files": [
+    "dist"
+  ],
   "scripts": {
-    "test": "test"
+    "build": "webpack --config webpack.prod.js",
+    "code": "concurrently --kill-others \"npm run server\" \"npm run start\"",
+    "demo": "webpack --config webpack.dev.js",
+    "deploy": "gh-pages -d demo",
+    "eslint": "eslint . && cd server && eslint .",
+    "lint": "npm run eslint --fix",
+    "live": "cross-env BABEL_ENV=production npm run start",
+    "predeploy": "webpack --config webpack.dev.js --mode production",
+    "prepublishOnly": "npm run lint && npm run test && npm run build",
+    "server": "node index.mjs",
+    "start": "webpack-dev-server --config webpack.dev.js --hot --open",
+    "test": "jest",
+    "watch": "jest --watch"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/MenSeb/react-boilerplate.git"
   },
   "keywords": [
     "react",
     "boilerplate"
   ],
   "author": "Sébastien Menard",
-  "license": "ISC"
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/MenSeb/react-boilerplate/issues"
+  },
+  "homepage": "https://github.com/MenSeb/react-boilerplate#readme",
+  "devDependencies": {
+    "@babel/cli": "^7.8.4",
+    "@babel/core": "^7.9.6",
+    "@babel/plugin-transform-runtime": "^7.9.6",
+    "@babel/preset-env": "^7.9.6",
+    "@babel/preset-react": "^7.7.4",
+    "@testing-library/jest-dom": "^4.2.4",
+    "@testing-library/react": "^9.4.0",
+    "@testing-library/react-hooks": "^3.2.1",
+    "babel-eslint": "^10.1.0",
+    "babel-loader": "^8.1.0",
+    "babel-plugin-jsx-remove-data-test-id": "^2.1.3",
+    "concurrently": "^5.2.0",
+    "cross-env": "^7.0.0",
+    "css-loader": "^3.4.0",
+    "eslint": "^7.0.0",
+    "eslint-config-prettier": "^6.11.0",
+    "eslint-plugin-jest": "^23.13.1",
+    "eslint-plugin-jest-dom": "^2.0.0",
+    "eslint-plugin-jsx-a11y": "^6.2.3",
+    "eslint-plugin-prettier": "^3.1.3",
+    "eslint-plugin-react": "^7.17.0",
+    "eslint-plugin-react-hooks": "^2.3.0",
+    "eslint-plugin-testing-library": "^2.0.0",
+    "gh-pages": "^2.1.1",
+    "jest": "^26.0.1",
+    "node-sass": "^4.13.0",
+    "prettier": "^2.0.5",
+    "react-test-renderer": "^16.12.0",
+    "sass-loader": "^8.0.0",
+    "style-loader": "^1.1.2",
+    "webpack": "^4.41.5",
+    "webpack-cli": "^3.3.10",
+    "webpack-dev-server": "^3.10.1",
+    "webpack-merge": "^4.2.2"
+  },
+  "dependencies": {
+    "@babel/runtime": "^7.9.6",
+    "axios": "^0.19.2",
+    "body-parser": "^1.19.0",
+    "cors": "^2.8.5",
+    "express": "^4.17.1",
+    "mongoose": "^5.9.13",
+    "prop-types": "^15.7.2",
+    "react": "^16.13.1",
+    "react-dom": "^16.13.1",
+    "react-router-dom": "^5.2.0",
+    "react-transition-group": "^4.4.1"
+  }
 }
