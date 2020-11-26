@@ -4,13 +4,13 @@ module.exports = {
     module: {
         rules: [
             {
-                test: /.(js|jsx)$/,
                 exclude: /node_modules/,
+                test: /.(js|jsx)$/,
                 use: ['babel-loader'],
             },
             {
-                test: /.s[ac]ss$/,
                 exclude: /node_modules/,
+                test: /.s[ac]ss$/,
                 use: ['style-loader', 'css-loader', 'sass-loader'],
             },
         ],
