@@ -1,18 +1,11 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-export default function TabList({
-    children,
-    label,
-    labelledby,
-    orientation,
-    ...props
-}) {
+export default function TabList({ children, label, orientation, ...props }) {
     return (
         <div
             {...props}
             aria-label={label}
-            aria-labelledby={labelledby}
             aria-orientation={orientation}
             role="tablist"
         >
@@ -22,14 +15,11 @@ export default function TabList({
 }
 
 TabList.defaultProps = {
-    label: undefined,
-    labelledby: undefined,
     orientation: 'horizontal',
 };
 
 TabList.propTypes = {
     children: PropTypes.node.isRequired,
-    label: PropTypes.string,
-    labelledby: PropTypes.string,
+    label: PropTypes.string.isRequired,
     orientation: PropTypes.oneOf(['horizontal', 'vertical']),
 };

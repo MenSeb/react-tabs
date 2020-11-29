@@ -6,7 +6,6 @@ const props = {
     children: <div />,
     className: 'cs',
     label: 'label',
-    labelledby: 'labelledby',
     orientation: 'horizontal',
 };
 
@@ -27,10 +26,6 @@ describe('<TabList />', () => {
 
     it('renders with attribute aria-label', () => {
         expect(getList()).toHaveAttribute('aria-label', props.label);
-    });
-
-    it('renders with attribute aria-labelledby', () => {
-        expect(getList()).toHaveAttribute('aria-labelledby', props.labelledby);
     });
 
     it('renders with attribute aria-orientation', () => {
