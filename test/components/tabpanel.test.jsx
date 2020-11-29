@@ -7,7 +7,7 @@ const props = {
     className: 'cs',
     hidden: false,
     id: 'id',
-    label: 'label',
+    labelledby: 'labelledby',
 };
 
 function getPanel() {
@@ -31,7 +31,10 @@ describe('<TabPanel />', () => {
         });
 
         it('renders with attribute aria-labelledby', () => {
-            expect(getPanel()).toHaveAttribute('aria-labelledby', props.label);
+            expect(getPanel()).toHaveAttribute(
+                'aria-labelledby',
+                props.labelledby,
+            );
         });
 
         it('renders with attribute tabindex 0', () => {
