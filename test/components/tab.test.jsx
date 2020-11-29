@@ -72,18 +72,16 @@ describe('<Tab />', () => {
         });
     });
 
-    describe('When using popup', () => {
-        beforeEach(() => render(<Tab {...props} haspopup={true} />));
-
+    describe('With popup', () => {
         it('renders with attribute aria-haspopup true', () => {
+            render(<Tab {...props} haspopup={true} />);
             expect(getTab()).toHaveAttribute('aria-haspopup', 'true');
         });
     });
 
-    describe('When not using popup', () => {
-        beforeEach(() => render(<Tab {...props} haspopup={false} />));
-
+    describe('Without popup', () => {
         it('renders with attribute aria-haspopup false', () => {
+            render(<Tab {...props} haspopup={false} />);
             expect(getTab()).toHaveAttribute('aria-haspopup', 'false');
         });
     });
