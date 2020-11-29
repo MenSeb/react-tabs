@@ -8,7 +8,6 @@ const props = {
     hidden: false,
     id: 'id',
     label: 'label',
-    tag: 'section',
 };
 
 function getPanel() {
@@ -16,7 +15,7 @@ function getPanel() {
 }
 
 describe('<TabPanel />', () => {
-    describe('When shown', () => {
+    describe('When rendering', () => {
         beforeEach(() => render(<TabPanel {...props} />));
 
         it('renders with role tabpanel', () => {
@@ -39,23 +38,21 @@ describe('<TabPanel />', () => {
             expect(getPanel()).toHaveAttribute('tabindex', '0');
         });
 
-        it('renders with the tag provided', () => {
-            expect(getPanel().tagName).toMatch(RegExp(props.tag, 'i'));
-        });
-
         it('renders with additionnal props', () => {
             expect(getPanel()).toHaveClass(props.className);
         });
+    });
 
+    describe('When shown', () => {
         it('renders without attribute hidden', () => {
+            render(<TabPanel {...props} hidden={false} />);
             expect(getPanel()).not.toHaveAttribute('hidden');
         });
     });
 
     describe('When hidden', () => {
-        beforeEach(() => render(<TabPanel {...props} hidden={true} />));
-
         it('renders with attribute hidden', () => {
+            render(<TabPanel {...props} hidden={true} />);
             expect(getPanel()).toHaveAttribute('hidden', '');
         });
     });
