@@ -2,13 +2,13 @@
   "name": "@menseb/react-tabs",
   "version": "1.0.0",
   "description": "React tabs",
-  "main": "index.js",
-  "module": "index.js",
+  "main": "dist/index.js",
+  "module": "dist/index.js",
   "files": [
     "dist"
   ],
   "scripts": {
-    "build": "webpack --config webpack.prod.js",
+    "build": "rm -rf ./dist && webpack --config webpack.prod.js",
     "demo": "webpack --config webpack.dev.js",
     "deploy": "gh-pages -d demo",
     "eslint": "eslint .",
