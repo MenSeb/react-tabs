@@ -1,0 +1,72 @@
+*,
+*::after,
+*::before {
+    margin: 0;
+    border: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    height: 100vh;
+    background-color: dimgray;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+[role=region] {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+
+    &:focus,
+    &:focus-within {
+        border: 2px solid green;
+        padding: 10px;
+    }
+}
+
+[role=tablist] {
+    display: flex;
+
+    &:focus,
+    &:focus-within{
+        border: 2px solid red;
+        padding: 10px;
+    }
+}
+
+[role=tabpanel] {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px 0;
+    color: coral;
+
+    &[hidden] {
+        display: none;
+    }
+}
+
+[role=tab] {
+    height: 50px;
+    width: 50px;
+    color: dodgerblue;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    &:focus-within {
+        border: 2px solid greenyellow;
+    }
+
+    &:focus,
+    &:active {
+        border: 2px solid greenyellow;
+        outline: none;
+    }
+}
