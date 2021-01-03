@@ -9,7 +9,7 @@
         React Tabs
     </h1>
     <p>
-        Accessible tabs widget using React.
+        Accessible tabs widget for React.
     </p>
 </div>
 
