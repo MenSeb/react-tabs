@@ -16,7 +16,7 @@
     "live": "cross-env BABEL_ENV=production npm run start",
     "predeploy": "webpack --config webpack.dev.js --mode production",
     "prepublishOnly": "npm run lint && npm run test && npm run build",
-    "start": "webpack serve --config webpack.dev.js --hot --open chrome",
+    "start": "webpack serve --config webpack.dev.js --hot --open",
     "test": "jest",
     "watch": "jest --watch"
   },
