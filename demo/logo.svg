@@ -6,30 +6,14 @@
     xmlns:xlink="http://www.w3.org/1999/xlink"
 >
     <defs>
-        <ellipse
-            cx="0"
-            cy="0"
-            fill="transparent"
-            id="orbit"
-            rx="5"
-            ry="2"
-            stroke-width=".5"
-        />
-        <path
-            d="M-4 -4 v-3 h5 v3"
-            id="tab"
-            stroke-linejoin="round"
-        />
+        <ellipse id="orbit" rx="5" ry="2" stroke-width=".5" />
+        <path d="M-4 -4 v-3 h5 v3" id="tab" />
     </defs>
 
-    <g stroke="#5fd4f4">
+    <g fill="none" stroke="#5fd4f4" stroke-linejoin="round">
         <use xlink:href="#tab" x="8" />
         <use xlink:href="#tab" x="1.5" />
-        <path
-            d="M-10 -8 h6 v4 h14 v12 h-20 z"
-            fill="none"
-            stroke-linejoin="round"
-        />
+        <path d="M-10 -8 h6 v4 h14 v12 h-20 z" />
         <use xlink:href="#orbit" transform="translate(0, 2)" />
         <use xlink:href="#orbit" transform="translate(0, 2) rotate(60)" />
         <use xlink:href="#orbit" transform="translate(0, 2) rotate(-60)" />
