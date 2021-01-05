@@ -23,7 +23,9 @@ describe('remove', () => {
     describe('When the removed tab is the active tab', () => {
         it('updates the state with the next tab', () => {
             expect(
-                remove(state, { target: { ...target, id: 'idTab' } }),
+                remove(state, {
+                    target: { ...target, id: 'idTab', nextSibling },
+                }),
             ).toMatchObject({
                 ...state,
                 datas: state.datas.map((data) => ({
@@ -38,7 +40,7 @@ describe('remove', () => {
         it('updates the state awith the previous tab otherwise', () => {
             expect(
                 remove(state, {
-                    target: { ...target, id: 'idTab', nextSibling: null },
+                    target: { ...target, id: 'idTab', previousSibling },
                 }),
             ).toMatchObject({
                 ...state,
