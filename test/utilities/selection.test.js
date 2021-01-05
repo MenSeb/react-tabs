@@ -6,42 +6,32 @@ import {
     selectTabNext,
     selectTabPrev,
 } from 'utilities';
-
-const firstChild = {};
-const lastChild = {};
-const nextSibling = {};
-const previousSibling = {};
-const childNodes = [{ id: '1' }, { id: '2' }, { id: '3' }];
-const parentNode = { childNodes, firstChild: null, lastChild: null };
-const target = {
-    nextSibling: null,
-    parentNode,
-    previousSibling: null,
-};
-const targetNextSibling = { ...target, nextSibling };
-const targetPreviousSibling = { ...target, previousSibling };
-const parentNodeFirstChild = { ...parentNode, firstChild };
-const parentNodeLastChild = { ...parentNode, lastChild };
-const targetFirstChild = { ...target, parentNode: parentNodeFirstChild };
-const targetLastChild = { ...target, parentNode: parentNodeLastChild };
+import {
+    childNode,
+    firstChild,
+    lastChild,
+    nextSibling,
+    previousSibling,
+    target,
+} from '../';
 
 describe('selectTab', () => {
     it('returns the child with the same id as the current tab', () => {
-        expect(selectTab('2', target)).toBe(childNodes[1]);
+        expect(selectTab(childNode.id, target)).toBe(childNode);
     });
 
-    it('returns null if no child with the same id as the current tab exists', () => {
-        expect(selectTab('4', target)).toBeNull();
+    it('returns null otherwise', () => {
+        expect(selectTab('child-4', target)).toBeNull();
     });
 });
 
 describe('selectTabDelete', () => {
     it('returns the target nextSibling if it exists', () => {
-        expect(selectTabDelete(targetNextSibling)).toBe(nextSibling);
+        expect(selectTabDelete({ nextSibling })).toBe(nextSibling);
     });
 
     it('returns the target previousSibling otherwise and if it exists', () => {
-        expect(selectTabDelete(targetPreviousSibling)).toBe(previousSibling);
+        expect(selectTabDelete({ previousSibling })).toBe(previousSibling);
     });
 
     it('returns null otherwise', () => {
@@ -51,7 +41,7 @@ describe('selectTabDelete', () => {
 
 describe('selectTabFirst', () => {
     it('returns the target parentNode firstChild if it exists', () => {
-        expect(selectTabFirst(targetFirstChild)).toBe(firstChild);
+        expect(selectTabFirst({ parentNode: { firstChild } })).toBe(firstChild);
     });
 
     it('returns null otherwise', () => {
@@ -61,7 +51,7 @@ describe('selectTabFirst', () => {
 
 describe('selectTabLast', () => {
     it('returns the target parentNode lastChild if it exists', () => {
-        expect(selectTabLast(targetLastChild)).toBe(lastChild);
+        expect(selectTabLast({ parentNode: { lastChild } })).toBe(lastChild);
     });
 
     it('returns null otherwise', () => {
@@ -71,11 +61,11 @@ describe('selectTabLast', () => {
 
 describe('selectTabNext', () => {
     it('returns the target nextSibling if it exists', () => {
-        expect(selectTabNext(targetNextSibling)).toBe(nextSibling);
+        expect(selectTabNext({ ...target, nextSibling })).toBe(nextSibling);
     });
 
     it('returns the target parentNode firstChild otherwise and if it exists', () => {
-        expect(selectTabNext(targetFirstChild)).toBe(firstChild);
+        expect(selectTabNext({ parentNode: { firstChild } })).toBe(firstChild);
     });
 
     it('returns null otherwise', () => {
@@ -85,11 +75,13 @@ describe('selectTabNext', () => {
 
 describe('selectTabPrev', () => {
     it('returns the target previousSibling if it exists', () => {
-        expect(selectTabPrev(targetPreviousSibling)).toBe(previousSibling);
+        expect(selectTabPrev({ ...target, previousSibling })).toBe(
+            previousSibling,
+        );
     });
 
     it('returns the target parentNode lastChild otherwise and if it exists', () => {
-        expect(selectTabPrev(targetLastChild)).toBe(lastChild);
+        expect(selectTabPrev({ parentNode: { lastChild } })).toBe(lastChild);
     });
 
     it('returns null otherwise', () => {
