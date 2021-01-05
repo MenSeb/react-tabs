@@ -6,10 +6,13 @@ import { Tab } from 'components';
 const props = {
     children: <div />,
     className: 'cs',
-    click: jest.fn(),
     controls: 'controls',
     haspopup: false,
     id: 'id',
+    onClick: jest.fn(),
+    onKeyDown: jest.fn(),
+    onKeyUp: jest.fn(),
+    removable: false,
     selected: false,
 };
 
@@ -29,10 +32,17 @@ describe('<Tab />', () => {
             expect(getTab()).not.toBeEmptyDOMElement();
         });
 
-        it('renders with click handler', () => {
+        it('renders with mouse handler', () => {
             userEvent.click(getTab());
 
-            expect(props.click).toHaveBeenCalledTimes(1);
+            expect(props.onClick).toHaveBeenCalledTimes(1);
+        });
+
+        it('renders with keyboard handler', () => {
+            userEvent.type(getTab(), '{enter}');
+
+            expect(props.onKeyDown).toHaveBeenCalledTimes(1);
+            expect(props.onKeyUp).toHaveBeenCalledTimes(1);
         });
 
         it('renders with attribute id', () => {
@@ -55,8 +65,8 @@ describe('<Tab />', () => {
             expect(getTab()).toHaveAttribute('aria-selected', 'true');
         });
 
-        it('renders without attribute tabIndex', () => {
-            expect(getTab()).not.toHaveAttribute('tabindex');
+        it('renders with attribute tabIndex 0', () => {
+            expect(getTab()).toHaveAttribute('tabindex', '0');
         });
     });
 
