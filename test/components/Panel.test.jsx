@@ -1,23 +1,14 @@
-import React from 'react';
-import { render, screen } from '@testing-library/react';
-import { TabPanel } from 'components';
+import { screen } from '@testing-library/react';
+import { idTabs, renderTabs } from '../';
 
-const props = {
-    children: <div />,
-    className: 'cs',
-    hidden: false,
-    id: 'id',
-    labelledby: 'labelledby',
-};
-
-function getPanel() {
-    return screen.getByRole('tabpanel', { hidden: true });
+function getPanel(index = 0, hidden = false) {
+    return screen.getAllByRole('tabpanel', { hidden })[index];
 }
 
-describe('<TabPanel />', () => {
-    describe('When rendering', () => {
-        beforeEach(() => render(<TabPanel {...props} />));
+describe('<Panel />', () => {
+    beforeEach(() => renderTabs());
 
+    describe('When rendering', () => {
         it('renders with role tabpanel', () => {
             expect(getPanel()).toBeInTheDocument();
         });
@@ -27,13 +18,13 @@ describe('<TabPanel />', () => {
         });
 
         it('renders with attribute id', () => {
-            expect(getPanel()).toHaveAttribute('id', props.id);
+            expect(getPanel()).toHaveAttribute('id', `panel-${idTabs}-0`);
         });
 
         it('renders with attribute aria-labelledby', () => {
             expect(getPanel()).toHaveAttribute(
                 'aria-labelledby',
-                props.labelledby,
+                `tab-${idTabs}-0`,
             );
         });
 
@@ -42,21 +33,27 @@ describe('<TabPanel />', () => {
         });
 
         it('renders with additionnal props', () => {
-            expect(getPanel()).toHaveClass(props.className);
+            expect(getPanel()).toHaveClass('panel');
         });
     });
 
     describe('When shown', () => {
         it('renders without attribute hidden', () => {
-            render(<TabPanel {...props} hidden={false} />);
             expect(getPanel()).not.toHaveAttribute('hidden');
+        });
+
+        it('renders with attribute aria-hidden false', () => {
+            expect(getPanel()).toHaveAttribute('aria-hidden', 'false');
         });
     });
 
     describe('When hidden', () => {
         it('renders with attribute hidden', () => {
-            render(<TabPanel {...props} hidden={true} />);
-            expect(getPanel()).toHaveAttribute('hidden', '');
+            expect(getPanel(1, true)).toHaveAttribute('hidden');
+        });
+
+        it('renders with attribute aria-hidden true', () => {
+            expect(getPanel(1, true)).toHaveAttribute('aria-hidden', 'true');
         });
     });
 });
