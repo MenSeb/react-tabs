@@ -1,9 +1,4 @@
-import { screen } from '@testing-library/react';
-import { idTabs, renderTabs } from '../';
-
-function getPanel(index = 0, hidden = false) {
-    return screen.getAllByRole('tabpanel', { hidden })[index];
-}
+import { getPanel, idTabs, renderTabs } from '../';
 
 describe('<Panel />', () => {
     beforeEach(() => renderTabs());
