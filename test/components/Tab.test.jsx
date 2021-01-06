@@ -1,7 +1,8 @@
 import React from 'react';
-import { render, screen } from '@testing-library/react';
+import { render } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import { Tab } from 'components';
+import { getTab } from '../';
 
 const props = {
     children: <div />,
@@ -15,10 +16,6 @@ const props = {
     removable: false,
     selected: false,
 };
-
-function getTab() {
-    return screen.getByRole('tab');
-}
 
 describe('<Tab />', () => {
     describe('When rendering', () => {
