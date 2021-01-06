@@ -44,11 +44,11 @@ describe('<Panel />', () => {
 
     describe('When hidden', () => {
         it('renders with attribute hidden', () => {
-            expect(getPanel(1, true)).toHaveAttribute('hidden');
+            expect(getPanel(1)).toHaveAttribute('hidden');
         });
 
         it('renders with attribute aria-hidden true', () => {
-            expect(getPanel(1, true)).toHaveAttribute('aria-hidden', 'true');
+            expect(getPanel(1)).toHaveAttribute('aria-hidden', 'true');
         });
     });
 });
