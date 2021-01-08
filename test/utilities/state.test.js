@@ -1,13 +1,5 @@
 import { updateState } from 'utilities';
-
-const state = {
-    automatic: true,
-    idTab: 'idTab',
-    orientation: 'vertical',
-};
-const target = {
-    id: 'id',
-};
+import { state, target } from '../';
 
 describe('updateState', () => {
     it('returns the state with no selected tab if target is null', () => {
