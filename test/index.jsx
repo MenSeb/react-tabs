@@ -3,14 +3,13 @@ import { render, screen } from '@testing-library/react';
 import { Panel, PanelList, Tab, TabList, Tabs, TabsProvider } from 'components';
 
 export const label = 'select a tab';
-export const tab = 3;
+export const tab = 2;
 export const tabs = 5;
 export const idTabs = 'idTabs';
-export const childs = [
-    { props: {} },
-    { props: { removable: true } },
-    { props: {} },
-];
+export const childs = Array.from({ length: tabs }, (_, index) => ({
+    props: {},
+    removable: index > tab ? true : false,
+}));
 export const childNode = { id: `tab-${idTabs}-${tab}` };
 export const firstChild = { id: `tab-${idTabs}-0` };
 export const lastChild = { id: `tab-${idTabs}-${tabs - 1}` };
