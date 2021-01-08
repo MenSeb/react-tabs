@@ -49,7 +49,6 @@ export const state = {
 };
 
 export function wrapper({
-    children,
     props = {},
     propsPanel = {},
     propsPanelList = {},
@@ -63,7 +62,6 @@ export function wrapper({
                 <TabList className="tablist" {...propsTabList}>
                     {Array.from({ length: tabs }, (_, tab) => (
                         <Tab className="tab" key={tab} {...propsTab}>
-                            {tab < 1 && children ? children : undefined}
                             tab ${tab}
                         </Tab>
                     ))}
