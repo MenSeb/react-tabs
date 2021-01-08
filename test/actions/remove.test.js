@@ -1,21 +1,20 @@
 import { remove } from 'actions';
-import { nextSibling, previousSibling, state, target } from '../';
+import { nextSibling, previousSibling, state, tabs, target } from '../';
 
-// eslint-disable-next-line jest/no-disabled-tests
-describe.skip('remove', () => {
+describe('remove', () => {
     it('returns the state if the tab is not removable', () => {
         expect(remove(state, { target })).toBe(state);
     });
 
     describe('When the removed tab is not the active tab', () => {
         it('updates the state and keeps the current active tab', () => {
-            expect(
-                remove(state, { target: { ...target, id: 'idRemovable' } }),
-            ).toMatchObject({
+            const { id } = state.datas[tabs - 1];
+
+            expect(remove(state, { target: { ...target, id } })).toMatchObject({
                 ...state,
                 datas: state.datas.map((data) => ({
                     ...data,
-                    deleted: data.id === 'idRemovable',
+                    deleted: data.id === id,
                 })),
             });
         });
@@ -23,31 +22,37 @@ describe.skip('remove', () => {
 
     describe('When the removed tab is the active tab', () => {
         it('updates the state with the next tab', () => {
+            const { id } = state.datas[tabs - 1];
+
             expect(
-                remove(state, {
-                    target: { ...target, id: 'idTab', nextSibling },
-                }),
+                remove(
+                    { ...state, idTab: id },
+                    { target: { ...target, id, nextSibling } },
+                ),
             ).toMatchObject({
                 ...state,
                 datas: state.datas.map((data) => ({
                     ...data,
-                    deleted: data.id === 'idTab',
+                    deleted: data.id === id,
                 })),
                 idTab: nextSibling.id,
                 target: nextSibling,
             });
         });
 
-        it('updates the state awith the previous tab otherwise', () => {
+        it('updates the state with the previous tab otherwise', () => {
+            const { id } = state.datas[tabs - 1];
+
             expect(
-                remove(state, {
-                    target: { ...target, id: 'idTab', previousSibling },
-                }),
+                remove(
+                    { ...state, idTab: id },
+                    { target: { ...target, id, previousSibling } },
+                ),
             ).toMatchObject({
                 ...state,
                 datas: state.datas.map((data) => ({
                     ...data,
-                    deleted: data.id === 'idTab',
+                    deleted: data.id === id,
                 })),
                 idTab: previousSibling.id,
                 target: previousSibling,
