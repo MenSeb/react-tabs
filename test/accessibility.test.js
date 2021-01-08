@@ -12,7 +12,6 @@ import {
     tabs,
 } from './index.jsx';
 
-// https://www.w3.org/TR/wai-aria-practices-1.2/#tabpanel
 describe('Accessibility', () => {
     describe('Roles', () => {
         beforeEach(() => renderTabs());
