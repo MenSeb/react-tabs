@@ -3,9 +3,10 @@ import { idTabs, state, tab } from '../';
 
 describe('config', () => {
     it('returns the initial state', () => {
-        expect(config(state)).toMatchObject(
-            expect.objectContaining({ ...state, datas: expect.any(Array) }),
-        );
+        expect(config(state)).toMatchObject({
+            ...state,
+            datas: expect.any(Array),
+        });
     });
 
     it('configures each tab with the adequate options', () => {
