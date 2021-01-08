@@ -3,8 +3,8 @@ import PropTypes from 'prop-types';
 import { nanoid } from 'nanoid';
 import { Provider } from '@menseb/react-context-reducer';
 import { Tabs } from './';
+import actions from 'utilities/actions';
 import {
-    actions,
     childrenRestricted,
     config,
     ORIENTATION_HORIZONTAL,
