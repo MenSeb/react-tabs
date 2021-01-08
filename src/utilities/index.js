@@ -1,4 +1,3 @@
-export { default as actions } from './actions';
 export { default as config } from './config';
 export * from './keys';
 export * from './orientation';
