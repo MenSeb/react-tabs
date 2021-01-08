@@ -1,3 +1,4 @@
+import { fireEvent } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import { ORIENTATION_VERTICAL as orientation } from 'utilities';
 import { getPanel, getTab, renderTabs, tab, tabs } from './';
@@ -236,13 +237,22 @@ describe('Keyboard interaction', () => {
         });
     });
 
-    describe('When user press any other key', () => {
-        it('keeps focus on the current tab', () => {
+    describe('When user press down a key', () => {
+        it('does not trigger the action until the key is released', () => {
             renderTabs();
 
-            userEvent.type(getTab(tab), '{esc}');
+            userEvent.tab();
 
             expect(getTab(tab)).toHaveFocus();
+
+            fireEvent.keyDown(getTab(tab), { key: 'ArrowRight' });
+            fireEvent.keyDown(getTab(tab), { key: 'ArrowRight' });
+
+            expect(getTab(tab)).toHaveFocus();
+
+            fireEvent.keyUp(getTab(tab), { key: 'ArrowRight' });
+
+            expect(getTab(tab + 1)).toHaveFocus();
         });
     });
 });
