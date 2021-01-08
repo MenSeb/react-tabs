@@ -7,8 +7,9 @@ export const tab = 2;
 export const tabs = 5;
 export const idTabs = 'idTabs';
 export const childs = Array.from({ length: tabs }, (_, index) => ({
-    props: {},
-    removable: index > tab ? true : false,
+    props: {
+        removable: index > tab ? true : undefined,
+    },
 }));
 export const childNode = { id: `tab-${idTabs}-${tab}` };
 export const firstChild = { id: `tab-${idTabs}-0` };
