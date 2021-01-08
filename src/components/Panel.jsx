@@ -20,7 +20,7 @@ export default function Panel({
             hidden={hidden}
             id={id}
             role="tabpanel"
-            tabIndex="0"
+            tabIndex={hidden ? -1 : 0}
         >
             {children}
         </div>
