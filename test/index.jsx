@@ -43,7 +43,6 @@ export const state = {
     idTab: target.id,
     idTabs,
     removable: false,
-    target,
     tab,
     tabs,
 };
