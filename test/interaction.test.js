@@ -235,4 +235,14 @@ describe('Keyboard interaction', () => {
             });
         });
     });
+
+    describe('When user press any other key', () => {
+        it('keeps focus on the current tab', () => {
+            renderTabs();
+
+            userEvent.type(getTab(tab), '{esc}');
+
+            expect(getTab(tab)).toHaveFocus();
+        });
+    });
 });
