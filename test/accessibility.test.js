@@ -10,7 +10,7 @@ import {
     renderTabs,
     tab,
     tabs,
-} from './index.jsx';
+} from './';
 
 describe('Accessibility', () => {
     describe('Roles', () => {
