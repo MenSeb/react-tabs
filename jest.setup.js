@@ -1,6 +1,6 @@
 const { error: consoleError } = console;
 
-export const ERROR_MESSAGES = /Invalid prop|Failed prop type|Failed test type/gi;
+export const ERROR_MESSAGES = /Invalid prop|Failed [a-z]+ type/gi;
 
 export function error(message, ...args) {
     if (ERROR_MESSAGES.test(message)) {
