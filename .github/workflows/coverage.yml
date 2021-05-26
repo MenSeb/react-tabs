@@ -8,9 +8,12 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - uses: actions/setup-node@v1
-      - run: npm ci
-      - name: Coveralls
+      - name: npm install
+        run: npm ci
+      - name: run coverage
         run: npm run coverage
-        env:
+      - name: Coveralls
+        uses: coverallsapp/github-action@master
+        with:
           github-token: ${{ github.token }}
-          path-to-lcov: ${{ github.workspace }}/coverage/lcov.info
+          # path-to-lcov: ${{ github.workspace }}/coverage/lcov.info
