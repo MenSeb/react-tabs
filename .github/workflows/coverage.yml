@@ -1,0 +1,11 @@
+name: Code Coverage Coveralls
+
+on: [push, pull_request]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: Run Coverage
+        run: npm run coverage
