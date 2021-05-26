@@ -36,7 +36,7 @@
   },
   "homepage": "https://github.com/MenSeb/react-tabs#readme",
   "dependencies": {
-    "@babel/runtime": "^7.12.5",
+    "@babel/runtime": "^7.14.0",
     "@menseb/react-context-reducer": "^1.0.11",
     "nanoid": "^3.1.20"
   },
