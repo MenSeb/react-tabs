@@ -10,7 +10,7 @@ jobs:
       - uses: actions/setup-node@v1
       - run: npm ci
       - name: Coveralls
-        uses: coverallsapp/github-action@v1.1.2
-        with:
+        run: npm run coverage
+        env:
           github-token: ${{ github.token }}
           path-to-lcov: ${{ github.workspace }}/coverage/lcov.info
