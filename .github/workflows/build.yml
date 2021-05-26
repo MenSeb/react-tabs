@@ -3,18 +3,31 @@ name: build
 on:
   push:
     paths-ignore:
-      - 'README.md'
+      - '**.md'
   pull_request:
     paths-ignore:
-      - 'README.md'
+      - '**.md'
 
 jobs:
   build:
-    runs-on: ubuntu-latest
+    name: Build,
+    strategy:
+      matrix:
+        runs-on: [ubuntu-latest, macos-latest, windows-latest]
+      fail-fast: false
+    runs-on: ${{ matrix.runs-on }}
     steps:
-      - uses: actions/checkout@v2
-      - uses: actions/setup-node@v1
-      - name: npm install
+      - name: Checkout
+        uses: actions/checkout@v2
+
+      - name: Setup NodeJS
+        uses: actions/setup-node@v1
+
+      - name: Install
         run: npm ci
-      - name: run build
+
+      - name: Lint
+        run: npm run lint
+
+      - name: Compile
         run: npm run build
