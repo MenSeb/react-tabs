@@ -15,7 +15,7 @@
 
 <hr>
 
-[![Build Status](https://travis-ci.com/MenSeb/react-boilerplate.svg?token=8TzPeku6xVPzgovguE6A&branch=master)](https://travis-ci.com/MenSeb/react-boilerplate)
+[![Build Status](https://github.com/MenSeb/react-boilerplate/workflows/build/badge.svg)](https://github.com/MenSeb/react-boilerplate/actions)
 [![CodeFactor](https://www.codefactor.io/repository/github/menseb/react-boilerplate/badge?s=d3b4606115f45a496c1e67e48d9651fba4afdd04)](https://www.codefactor.io/repository/github/menseb/react-boilerplate)
 [![Coverage Status](https://coveralls.io/repos/github/MenSeb/react-boilerplate/badge.svg?branch=master)](https://coveralls.io/github/MenSeb/react-boilerplate?branch=master)
 ![David](https://img.shields.io/david/MenSeb/react-boilerplate)
