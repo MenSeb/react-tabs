@@ -1,12 +1,20 @@
 name: build
 
+# Should look for some tools here
+# https://github.com/fkirc/skip-duplicate-actions
+# Might be useful to skip previous commit actions
+# Might be useful to skip actions for specific files (.md)
+# paths-ignore isn't good enough to compare commits
+
 on:
   push:
-    paths-ignore:
-      - '**.md'
+    branches:
+      - master
+    #paths-ignore:
+    #  - '**/*.md'
   pull_request:
-    paths-ignore:
-      - '**.md'
+    #paths-ignore:
+    #  - '**/*.md'
 
 jobs:
   build:
