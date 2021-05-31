@@ -12,22 +12,6 @@
         {
             "automerge": true,
             "depTypeList": ["devDependencies"]
-        },
-        {
-            "groupName": "Linting Dependencies",
-            "packagePatterns": ["eslint", "prettier"]
-        },
-        {
-            "groupName": "Testing Library Dependencies",
-            "packagePatterns": ["@testing-library"]
-        },
-        {
-            "groupName": "Styling Dependencies",
-            "packagePatterns": ["css", "sass", "style"]
-        },
-        {
-            "groupName": "Webpack Dependencies",
-            "packagePatterns": ["webpack"]
         }
     ]
 }
