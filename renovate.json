@@ -1,9 +1,11 @@
 {
     "extends": ["config:base"],
-    "assignees": ["MenSeb"],
-    "reviewers": ["MenSeb"],
     "prHourlyLimit": 0,
     "prConcurrentLimit": 0,
+    "schedule": [
+        "after 10pm every weekday",
+        "before 5am every weekday"
+    ],
     "packageRules": [
         {
             "automerge": true,
