@@ -1,7 +1,7 @@
 {
     "extends": ["config:base"],
-    "assignees": "MenSeb",
-    "reviewers": "MenSeb",
+    "assignees": ["MenSeb"],
+    "reviewers": ["MenSeb"],
     "prHourlyLimit": 0,
     "prConcurrentLimit": 0,
     "packageRules": [
