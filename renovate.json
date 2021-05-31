@@ -12,12 +12,20 @@
             "depTypeList": ["devDependencies"]
         },
         {
-            "groupName": "eslint",
-            "packagePatterns": ["eslint"]
+            "groupName": "Linting",
+            "packagePatterns": ["eslint", "prettier"]
         },
         {
-            "groupName": "testing-library",
+            "groupName": "Testing Library",
             "packagePatterns": ["@testing-library"]
+        },
+        {
+            "groupName": "Styling",
+            "packagePatterns": ["css", "sass", "style"]
+        },
+        {
+            "groupName": "Webpack",
+            "packagePatterns": ["webpack"]
         }
     ]
 }
