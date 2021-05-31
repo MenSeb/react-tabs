@@ -1,5 +1,7 @@
 {
     "extends": ["config:base"],
+    "assignees": "MenSeb",
+    "reviewers": "MenSeb",
     "prHourlyLimit": 0,
     "prConcurrentLimit": 0,
     "packageRules": [
@@ -12,19 +14,19 @@
             "depTypeList": ["devDependencies"]
         },
         {
-            "groupName": "Linting",
+            "groupName": "Linting Dependencies",
             "packagePatterns": ["eslint", "prettier"]
         },
         {
-            "groupName": "Testing Library",
+            "groupName": "Testing Library Dependencies",
             "packagePatterns": ["@testing-library"]
         },
         {
-            "groupName": "Styling",
+            "groupName": "Styling Dependencies",
             "packagePatterns": ["css", "sass", "style"]
         },
         {
-            "groupName": "Webpack",
+            "groupName": "Webpack Dependencies",
             "packagePatterns": ["webpack"]
         }
     ]
