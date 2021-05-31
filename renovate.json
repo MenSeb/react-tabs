@@ -1,5 +1,28 @@
 {
-  "extends": [
-    "config:base"
-  ]
+    "extends": ["config:base"],
+    "prHourlyLimit": 0,
+    "prConcurrentLimit": 0,
+    "schedule": [
+        "after 10pm every weekday",
+        "before 5am every weekday",
+        "every weekend"
+    ],
+    "packageRules": [
+        {
+            "automerge": true,
+            "updateTypes": ["minor", "patch", "pin", "digest"]
+        },
+        {
+            "automerge": true,
+            "depTypeList": ["devDependencies"]
+        },
+        {
+            "groupName": "eslint",
+            "packagePatterns": ["eslint"]
+        },
+        {
+            "groupName": "testing-library",
+            "packagePatterns": ["@testing-library"]
+        }
+    ]
 }
