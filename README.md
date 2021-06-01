@@ -15,8 +15,6 @@
 
 <hr>
 
-
-
 [![Build Status](https://github.com/MenSeb/react-tabs/workflows/build/badge.svg)](https://github.com/MenSeb/react-tabs/actions)
 [![CodeFactor](https://www.codefactor.io/repository/github/menseb/react-tabs/badge?s=d3b4606115f45a496c1e67e48d9651fba4afdd04)](https://www.codefactor.io/repository/github/menseb/react-tabs)
 [![Coverage Status](https://coveralls.io/repos/github/MenSeb/react-tabs/badge.svg?branch=master)](https://coveralls.io/github/MenSeb/react-tabs?branch=master)
@@ -47,6 +45,9 @@ npm i @menseb/react-tabs
 ## How to use
 
 ## PropTypes
+
+| property | type | required | default |
+|----------|------|----------|---------|
 
 ## Scripts
 
