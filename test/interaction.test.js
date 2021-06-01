@@ -57,10 +57,8 @@ describe('Keyboard interaction', () => {
         });
     });
 
-    // https://github.com/testing-library/user-event/issues/537
     describe('When user press home', () => {
-        // eslint-disable-next-line jest/no-disabled-tests
-        it.skip('moves focus to the first tab', () => {
+        it('moves focus to the first tab', () => {
             renderTabs();
 
             expect(getTab()).not.toHaveFocus();
@@ -71,10 +69,8 @@ describe('Keyboard interaction', () => {
         });
     });
 
-    // https://github.com/testing-library/user-event/issues/537
     describe('When user press end', () => {
-        // eslint-disable-next-line jest/no-disabled-tests
-        it.skip('moves focus to the last tab', () => {
+        it('moves focus to the last tab', () => {
             renderTabs();
 
             expect(getTab(tabs - 1)).not.toHaveFocus();
