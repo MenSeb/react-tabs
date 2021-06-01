@@ -8,7 +8,8 @@
         "dist"
     ],
     "scripts": {
-        "build": "rm -rf ./dist && webpack --config webpack.prod.js",
+        "build": "rimraf dist && webpack --config webpack.prod.js",
+        "clean": "git clean -fXd -e !node_modules -e !node_modules/**/*",
         "coverage": "jest --coverage",
         "demo": "webpack --config webpack.dev.js",
         "deploy": "gh-pages -d demo",
@@ -16,6 +17,7 @@
         "lint": "npm run eslint -- --fix",
         "predeploy": "webpack --config webpack.dev.js --mode production",
         "prepublishOnly": "npm run lint && npm run test && npm run build",
+        "setup": "npm run clean && npm install && npm run build",
         "start": "webpack serve --config webpack.dev.js --hot --open",
         "test": "jest",
         "watch": "jest --watch"
@@ -64,6 +66,7 @@
         "react": "17.0.2",
         "react-dom": "17.0.2",
         "react-test-renderer": "17.0.2",
+        "rimraf": "^3.0.2",
         "sass-loader": "11.1.1",
         "style-loader": "2.0.0",
         "webpack": "5.38.1",
