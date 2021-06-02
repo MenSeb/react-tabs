@@ -17,15 +17,8 @@ import {
 export default function TabList({ children, ...props }) {
     const { dispatch, state } = useContextReducer();
 
-    const {
-        datas,
-        idTab,
-        idTabs,
-        label,
-        orientation,
-        override,
-        target,
-    } = state;
+    const { datas, idTab, idTabs, label, orientation, override, target } =
+        state;
 
     const refKey = useRef(null);
 
