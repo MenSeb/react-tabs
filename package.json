@@ -51,7 +51,7 @@
         "@babel/runtime": "7.14.0",
         "@testing-library/jest-dom": "5.16.4",
         "@testing-library/react": "11.2.7",
-        "@testing-library/react-hooks": "7.0.0",
+        "@testing-library/react-hooks": "7.0.2",
         "@testing-library/user-event": "13.1.9",
         "babel-eslint": "10.1.0",
         "babel-loader": "8.2.2",
