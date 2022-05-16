@@ -58,7 +58,7 @@
         "babel-plugin-jsx-remove-data-test-id": "3.0.0",
         "coveralls": "3.1.1",
         "cross-env": "7.0.3",
-        "css-loader": "5.2.7",
+        "css-loader": "6.7.1",
         "eslint": "7.32.0",
         "eslint-config-prettier": "8.5.0",
         "eslint-plugin-jest": "24.7.0",
